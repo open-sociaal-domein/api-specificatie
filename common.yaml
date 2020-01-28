@@ -46,7 +46,7 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/BadRequestFoutbericht'
+            $ref: '#/components/schemas/badRequestFoutbericht'
           example:
             type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1 400 Bad Request
             title: Ten minste één parameter moet worden opgegeven.
@@ -67,7 +67,7 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Foutbericht'
+            $ref: '#/components/schemas/foutbericht'
           example:
             type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2 401 Unauthorized
             title: Niet correct geauthenticeerd.
@@ -83,7 +83,7 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Foutbericht'
+            $ref: '#/components/schemas/foutbericht'
           example:
             type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4 403 Forbidden
             title: U bent niet geautoriseerd voor deze operatie.
@@ -99,7 +99,7 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Foutbericht'
+            $ref: '#/components/schemas/foutbericht'
           example:
             type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5 404 Not Found
             title: Opgevraagde resource bestaat niet.
@@ -115,7 +115,7 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Foutbericht'
+            $ref: '#/components/schemas/foutbericht'
           example:
             type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7 406 Not Acceptable
             title: Gevraagde contenttype wordt niet ondersteund.
@@ -131,7 +131,7 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Foutbericht'
+            $ref: '#/components/schemas/foutbericht'
           example:
             type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.10 409 Conflict
             title: Conflict
@@ -147,7 +147,7 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Foutbericht'
+            $ref: '#/components/schemas/foutbericht'
           example:
             type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11 410 Gone
             title: Gone
@@ -163,7 +163,7 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Foutbericht'
+            $ref: '#/components/schemas/foutbericht'
           example:
             type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.16 415 Unsupported Media Type
             title: Unsupported Media Type
@@ -179,7 +179,7 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Foutbericht'
+            $ref: '#/components/schemas/foutbericht'
           example:
             type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
             title: Too many request
@@ -195,7 +195,7 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Foutbericht'
+            $ref: '#/components/schemas/foutbericht'
           example:
             type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1 500 Internal server error
             title: Interne server fout.
@@ -211,7 +211,7 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Foutbericht'
+            $ref: '#/components/schemas/foutbericht'
           example:
             type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.2 501 Not Implemented
             title: Not Implemented
@@ -227,7 +227,7 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Foutbericht'
+            $ref: '#/components/schemas/foutbericht'
           example:
             type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4 503 Service Unavailable
             title: Bronservice {bron} is tijdelijk niet beschikbaar.
@@ -243,29 +243,29 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Foutbericht'
+            $ref: '#/components/schemas/foutbericht'
   schemas:
-    Href:
+    href:
       type: string
       format: "uri"
       example: "datapunt.voorbeeldgemeente.nl/api/resourcename/123456789"
-    HalLink:
+    halLink:
       description: De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5
       type: object
       required:
         - href
       properties:
         href:
-          $ref: "#/components/schemas/Href"
+          $ref: "#/components/schemas/href"
         title:
          description: "Voor mens leesbaar label bij de link"
          type: string
-    HalCollectionLinks:
+    halCollectionLinks:
       type: object
       properties:
         self:
-          $ref: "#/components/schemas/HalLink"
-    Foutbericht:
+          $ref: "#/components/schemas/halLink"
+    foutbericht:
       type: object
       description: Terugmelding bij een fout. JSON representatie in lijn met [RFC7807](https://tools.ietf.org/html/rfc7807).
       properties:
@@ -290,7 +290,7 @@ components:
           type: string
           description: Systeemcode die het type fout aangeeft
           minLength: 1
-    InvalidParams:
+    invalidParams:
       type: object
       description: Details over fouten in opgegeven parameters
       properties:
@@ -311,17 +311,17 @@ components:
           type: string
           description: Beschrijving van de fout op de parameterwaarde
           example: Waarde is geen geldige integer.
-    BadRequestFoutbericht:
+    badRequestFoutbericht:
       allOf:
-      - $ref: '#/components/schemas/Foutbericht'
+      - $ref: '#/components/schemas/foutbericht'
       - type: object
         properties:
           invalidParams:
             description: Foutmelding per fout in een parameter. Alle gevonden fouten worden één keer teruggemeld.
             type: array
             items:
-              $ref: '#/components/schemas/InvalidParams'
-    Datum_onvolledig:
+              $ref: '#/components/schemas/invalidParams'
+    datum_onvolledig:
       type: "object"
       description: "Gegevens over de datums die mogelijk niet volledig zijn, maar\
         \ waarvan de bekende gedeeltes wel moeten kunnen worden uitgewisseld. Als\

@@ -1,5 +1,7 @@
 # api-specificatie
-Alegmene api specificaties voor Solviteers
+Gemeenschappelijke componenten voor meervoudig gebruik in api's.
+
+Omvat onder andere verwijzingen naar foutcodes en standaard informatieobjecten.
 
 # view online:
-* [Swagger formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml)
+* [Swagger formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/open-sociaal-domein/api-specificatie/master/common.yaml)
